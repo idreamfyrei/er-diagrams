@@ -72,10 +72,10 @@ This prevent invalid allocations
 
 - **parking_ticket**
 The ticket that gets issued once a user enters the lot
- - ticket_id : internal ID
- - ticket_number : user-facing ID
- - vehicle_number : snapshot of vehicle number
- - issued_at
+   - ticket_id : internal ID
+   - ticket_number : user-facing ID
+   - vehicle_number : snapshot of vehicle number
+   - issued_at
 
 6. Parking Session
 

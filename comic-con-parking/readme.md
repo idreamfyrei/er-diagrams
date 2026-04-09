@@ -29,8 +29,8 @@ The vehicle can be Bike, Car, SUV or **EV**
 Stores data about vehicle accessing parking lot. 
 One vehicle will have one record as licence_numver is unique
 
-- vehicle ca visit multiple times which is handles with parking_session
-- licence number is also stored
+  - vehicle ca visit multiple times which is handles with parking_session
+  - licence number is also stored
 
 2. Access Control System
 
@@ -41,8 +41,8 @@ Determine is the user is VIP, Staff, Exhibitor, Cosplayer or Visitor
 This is the junction table. A vehicle can have multiple purpose. Example: It can be for a exhibitor and other time can bring in cosplayer. 
 This creates many-to-many relationship
 
-- this helps in flexibility of roles
-- enforce permission based parking
+  - this helps in flexibility of roles
+  - enforce permission based parking
 
 3. Parking Model
 
@@ -55,11 +55,12 @@ It includes metadata for reserved and priority
 
 - **parking_spot** 
 Represent the parking slot where:
-zone_id : zone it belongs to
-spot_category_id : what type of spot it is
-spot_size ENUM : compatibility with vehicle
-is_active : availability control
-This give session based control to the spots
+  - zone_id : zone it belongs to
+  - spot_category_id : what type of spot it is
+  - spot_size ENUM : compatibility with vehicle
+  - is_active : availability control
+
+  This give session based control to the spots
 
 4. Spot Access Control
 
@@ -71,10 +72,10 @@ This prevent invalid allocations
 
 - **parking_ticket**
 The ticket that gets issued once a user enters the lot
-ticket_id : internal ID
-ticket_number : user-facing ID
-vehicle_number : snapshot of vehicle number
-issued_at
+ - ticket_id : internal ID
+ - ticket_number : user-facing ID
+ - vehicle_number : snapshot of vehicle number
+ - issued_at
 
 6. Parking Session
 
@@ -91,27 +92,27 @@ Tracks payment which is linked to session via parking_session and contains metad
 
 - **pricing_rule**
 This enables flexible pricing depending on vehicle type, spot (VIP or EV charging), and time based pricing (can change on weekends)
-vehicle_category_id : type of vehicle
-spot_category_id : type of parking spot
-base_price : fixed entry charge
-price_per_hour : variable cost
-valid_from, valid_to : time range for rule
+  - vehicle_category_id : type of vehicle
+  - spot_category_id : type of parking spot
+  - base_price : fixed entry charge
+  - price_per_hour : variable cost
+  - valid_from, valid_to : time range for rule
 
 Relationship:
 
 1-M
-vehicle_category -> vehicle
-vehicle -> parking_session
-parking_zone -> parking_spot
-spot_category -> parking_spot
-parking_spot -> parking_session
-parking_session -> payment
-vehicle_category -> pricing_rule
-spot_category -> pricing_rule
+  - vehicle_category -> vehicle
+  - vehicle -> parking_session
+  - parking_zone -> parking_spot
+  - spot_category -> parking_spot
+  - parking_spot -> parking_session
+  - parking_session -> payment
+  - vehicle_category -> pricing_rule
+  - spot_category -> pricing_rule
 
 M-M
-vehicle <-> access_category -> vehicle_access
-spot_category <-> access_category -> spot_category_access
+  - vehicle <-> access_category -> vehicle_access
+  - spot_category <-> access_category -> spot_category_access
 
 ### Flow:
 

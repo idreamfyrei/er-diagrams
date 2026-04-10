@@ -2,8 +2,8 @@
 This is an elevator management system for malls, offices, hospitals and high rise buildings. 
 It handles:
 - Multiple elevator per shaft
-- Zone based (low level, mid level, high level) elevator dispatching
-- Service area or wind based routing
+- Zone based (low level, mid level, high level) elevator dispatching [vertical sections]
+- Service area or wind based routing [horizontal section]
 - Different elevator types (public, staff, goods, private, VIP, emergency)
 - Real time tracking of elevator
 - RIde lifecycle

@@ -165,7 +165,6 @@ create elevator_assignment
 status = assigned
 ```
 
-
 Ride
 ```
 elevator reaches user current floor
